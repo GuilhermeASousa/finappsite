@@ -130,22 +130,30 @@ a {
     padding: 10px 0;
 }
 
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .navbar .logo {
     font-size: 1.8rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .navbar .nav-links {
     list-style-type: none;
     display: flex;
-    justify-content: flex-end;
     gap: 20px;
 }
 
 .navbar .nav-links li a {
     color: #3A2F73;
+    font-weight: bold;
     text-decoration: none;
     padding: 10px 15px;
     transition: background-color 0.3s ease;
@@ -157,7 +165,7 @@ a {
 
 .logo-img {
     height: 80px;
-    width: auto; 
+    width: auto;
     display: block;
 }
 
@@ -183,15 +191,17 @@ a {
 
 .hero .cta-button {
     display: inline-block;
-    background-color: #D6306B;
-    color: white;
-    font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
     padding: 15px 30px;
-    border-radius: 5px;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
+    background-color: #D6306B;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.25rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero .cta-button:hover {
@@ -208,6 +218,8 @@ a {
 .features-section h2 {
     font-size: 2.5rem;
     margin-bottom: 40px;
+    color: #3A2F73;
+    font-weight: bold;
 }
 
 .features-grid {
@@ -217,27 +229,38 @@ a {
 }
 
 .feature {
-    background-color: #f0f0f0;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
     padding: 40px;
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: left;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .feature i {
     font-size: 3rem;
-    color: black;
+    color: #D6306B;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 50%;
     margin-bottom: 15px;
 }
-
 
 .feature h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
+    color: #3E3364;
 }
 
 .feature p {
     font-size: 1.1rem;
     line-height: 1.6;
+    color: #333;
 }
 
 /* Seção de Benefícios */
@@ -351,8 +374,8 @@ footer p {
 }
 
 .social-links img {
-    width: 24px;
-    height: 24px;
+    width: 48px;
+    height: 48px;
 }
 
 .social-links a:hover {
@@ -404,11 +427,35 @@ button.secondary:hover {
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    .navbar .nav-links {
+@media (max-width: 900px) {
+    .navbar .container {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .navbar .nav-links {
+        margin-top: 10px;
+        justify-content: flex-start;
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .navbar .nav-links li {
+        margin: 0;
+        position: relative;
+        flex-shrink: 0;
+    }
+
+    .navbar .nav-links li:not(:last-child)::after {
+        content: "|";
+        position: absolute;
+        right: -10px;
+        top: 0;
+        bottom: 0;
+        color: #3A2F73;
+        opacity: 0.5;
     }
 
     .hero h1 {
